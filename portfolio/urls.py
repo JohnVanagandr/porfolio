@@ -7,5 +7,5 @@ urlpatterns = [
     path('',            views.inicio, name='inicio' ),
     path('portafolio/', views.portafolio, name='portafolio' ),
     path('contacto/',   views.contacto, name='contacto' ),
-    path('post',        include('post.urls')),
+    path('post/',        include('post.urls')),
 ]

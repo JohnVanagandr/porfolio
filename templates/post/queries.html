@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>queriesw</title>
+</head>
+<body>
+  <h1>Consultas</h1>
+  <hr>
+  <h2>Todos los autores {{ authors|length }}</h2>
+  <ul>
+    {% for author in authors  %}
+    <li>
+      {{ author.name}} <samp>{{ author.email }}</samp>
+    </li>
+    {% endfor %}
+  </ul> 
+  <hr>
+  <h3>
+    Consultar los autores con el correo: psmith@example.org
+  </h3>
+  <ul>
+    {% for author in filtered %}
+      <li>
+        {{ author.name}} <samp>{{ author.email }}</samp>
+      </li>
+    {% endfor %}
+  </ul>
+  <hr>
+  <h3>Obtener un único elemento (filtramos por el Id)</h3>
+  <p>
+    {{ author.name }}, <span> {{ author.email }}</span>
+  </p>
+  <hr>
+  <h3>Obtener los 10 primeros autores {{ limit|length }}</h3>
+  <ul>
+    {% for obj in limit  %}
+      <li>
+        <span> {{ obj.email }}</span>
+      </li>
+    {% endfor %}
+  </ul>
+  <hr>
+  <h3>Obtener los 5 primeros elmentos saltando los 5 primeros elementos (offsets)</h3>
+  <ul>
+    {% for ofs in offsets  %}
+      <li>
+        <span> {{ ofs.email }}</span>
+      </li>
+    {% endfor %}
+  </ul>
+  <hr>
+  <h3>Listar los elementos ordenados por el email {{ orders|length }}</h3>
+  {% for order in orders %}
+    <li>
+      <span> {{ order.email }}</span>
+    </li>
+  {% endfor %}
+  <hr>
+  <h3>
+    Consultar los autores cuyo id es menor o igual que 15
+  </h3>
+  <ul>
+    {% for author in filtered %}
+    <li>
+      {{ author.id}} <samp>{{ author.email }}</samp>
+    </li>
+    {% endfor %}
+  </ul>
+  <hr>
+  <hr>
+  <h3>
+    Consultar los autores que contengan la palabra (man) en su nombre {{ filtered|length }}
+  </h3>
+  <ul>
+    {% for author in filtered %}
+    <li>
+      {{ author.id}} <samp>{{ author.email }}</samp>
+    </li>
+    {% endfor %}
+  </ul>
+  <hr>
+</body>
+</html>
